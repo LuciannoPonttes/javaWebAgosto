@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<title>Titulo da pagina</title>
+		</head>
+
+		<body>
+		
+			<h1>Pagina HTML</h1>
+		</body>
+
+
+	</html>
