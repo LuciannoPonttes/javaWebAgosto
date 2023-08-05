@@ -1,0 +1,16 @@
+Git Status 
+	Verifica as alterações que foram realizadas
+		Se estiver em vermelho não está na fila para "subir" os arquivo para a nuvem do git HUB.
+		Se estiver verde quer dizer que os arquivos estão na fila para subir na nuvem do git HUB.
+
+Git Add .
+	Adiciona os arquivos que sofreram alteração na fila para serem enviados para o git na nuvem
+
+git commit -m "Comentario"
+
+	Adiciona o comentario referente a alteração
+
+Git push
+	Enviar todos os arquivos que estão na fila para serem enviados
+	
+git config --global user.email carbonaropedro@gmail.com
