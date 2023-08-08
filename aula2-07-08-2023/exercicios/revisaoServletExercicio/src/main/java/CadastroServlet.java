@@ -31,17 +31,20 @@ public class CadastroServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String nome = request.getParameter("nome");
+			String nome = request.getParameter("nome");
 		    String email = request.getParameter("email");
-
+		    
+		   RegistraArquivo registraArquivo = new RegistraArquivo();
+		  String resultado =  registraArquivo.escrevernoArquivo(nome, email);
+		   
+		    
 		    response.getWriter().println("<!DOCTYPE html>\r\n"
 		            + "<html>\r\n"
 		            + "<head>\r\n"
 		            + "    <title>Está a sua resposta - Tudo que você digitou</title>\r\n"
 		            + "</head>\r\n"
 		            + "<body>\r\n"
-		            + "    <p>Nome: " + nome + "</p>\r\n"
-		            + "    <p>Email: " + email + "</p>\r\n"
+		            + "    <p>Resultado: " + resultado + "</p>\r\n"
 		            + "</body>\r\n"
 		            + "</html>");
 		
