@@ -1,0 +1,9 @@
+Usando projeto web dinamico
+Crie um formulario que receba:
+
+	Nome:
+	Cpf:
+	Idade:
+	Email:
+
+Logo em seguida apresente ao usuario os dados que ele digitou.
