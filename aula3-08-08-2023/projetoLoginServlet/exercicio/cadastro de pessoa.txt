@@ -1,0 +1,11 @@
+Crie um projeto:
+
+		Que uma cadastre uma Pessoa:
+			Pessoa:
+				Nome:
+				CPF:
+				EMAIL:
+
+		Registre todos os cadastros em um arquivo(revisão aula de ontem)
+		
+		O usuario deve passar por uma tela de login.
