@@ -9,3 +9,10 @@ Crie um projeto:
 		Registre todos os cadastros em um arquivo(revisão aula de ontem)
 		
 		O usuario deve passar por uma tela de login.
+
+		Usando o mesmo projeto verifique o tipo de usuario que está logando:
+			Somente usuario do tipo ADM poderá cadastrar novas pessoas no sistema.
+		Usuario do tipo COMUM
+			Irão pode acessar somente o item SOBRE
+
+		No menu inicio deve conter uma barra de navegação.
