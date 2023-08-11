@@ -15,13 +15,13 @@ public class DaoUsuario {
 		FabricaConexao fabricaConexao = new FabricaConexao();
 
 		boolean salvamento = false; // Resposta do metodo
-		String comandoSqlInsert = "insert into tabela_jogador(nome,perfil, senha) values(?,?,?)";// Comando SQL
+		String comandoSqlInsert = "insert into tb_usuario(nome,perfil, senha) values(?,?,?)";// Comando SQL
 
 		Connection conexaoRecebida = null; // Recebe a conexao
 		PreparedStatement declaracaoComando = null; // Preparação do comando
 
 		try {
-			conexaoRecebida = fabricaConexao.criarConexao();
+			conexaoRecebida = fabricaConexao.criarConexaoDb_usuarios();
 
 			declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(comandoSqlInsert);// Preparação do
 																										// comanda

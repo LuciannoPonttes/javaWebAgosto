@@ -8,32 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Usuario;
-import persistencia.DaoUsuario;
+import persistence.DaoUsuario;
 
-/**
- * Servlet implementation class CadatrarUsuario
- */
 
-public class CadatrarUsuario extends HttpServlet {
+
+public class CadastroUsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CadatrarUsuario() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().println("<!DOCTYPE html>\r\n"
-				+ "<html lang=\"en\">\r\n"
-				+ "<head>\r\n"
-				+ "    <meta charset=\"UTF-8\">\r\n"
+				+ "\r\n"
+				+ "<html>\r\n"
+				+ "	<meta charset=\"UTF-8\">\r\n"
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n"
 				+ "    <title>Barra de Navegação</title>\r\n"
 				+ "    <style>\r\n"
@@ -61,7 +49,7 @@ public class CadatrarUsuario extends HttpServlet {
 				+ "            background-color: #e0e0e0;\r\n"
 				+ "        }\r\n"
 				+ "\r\n"
-				+ "        form {\r\n"
+				+ "		 form {\r\n"
 				+ "            margin-top: 20px;\r\n"
 				+ "            padding: 20px;\r\n"
 				+ "            border: 1px solid #ccc;\r\n"
@@ -88,47 +76,57 @@ public class CadatrarUsuario extends HttpServlet {
 				+ "        form input[type=\"submit\"]:hover {\r\n"
 				+ "            background-color: #0056b3;\r\n"
 				+ "        }\r\n"
-				+ "    </style>\r\n"
-				+ "</head>\r\n"
-				+ "<body>\r\n"
-				+ "    <ul class=\"navbar\">\r\n"
+				+ "	</style>\r\n"
+				+ "	<body>\r\n"
+				+ "	\r\n"
+				+ "	<ul class=\"navbar\">\r\n"
 				+ "        <li><a href=\"#\">Inicio</a></li>\r\n"
 				+ "        <li><a href=\"#\">Sobre</a></li>\r\n"
-				+ "        <li><a href=\"#\">Administrar</a></li>\r\n"
+				+ "        <li><a href=\"cadastroUsuario\">Administrar</a></li>\r\n"
 				+ "    </ul>\r\n"
+				+ "	\r\n"
+				+ "		<form action=\"cadastroUsuario\" method=\"post\" >\r\n"
+				+ "		<label>Nome:</label>\r\n"
+				+ "		<input type=\"text\" id=\"nome\" name=\"nome\">\r\n"
+				+ "		\r\n"
+				+ "		<label>Senha:</label>\r\n"
+				+ "		<input type=\"password\" id=\"senha\" name=\"senha\">\r\n"
+				+ "		\r\n"
+				+ "		<label>Perfil:</label>\r\n"
+				+ "		<select id=\"perfil\" name=\"perfil\">\r\n"
+				+ "			<option value=\"ADM\">ADM</option>\r\n"
+				+ "			<option value=\"COMUM\">COMUM</option>\r\n"
+				+ "		</select><br>\r\n"
+				+ "		\r\n"
+				+ "		<input type=\"submit\" value=\"Enviar\">\r\n"
+				+ "		\r\n"
+				+ "	</form>\r\n"
+				+ "		\r\n"
+				+ "		\r\n"
+				+ "	</body>\r\n"
 				+ "\r\n"
-				+ "    <form action=\"cadastroUsuario\" method=\"post\">\r\n"
-				+ "        <label for=\"nome\">Nome:</label>\r\n"
-				+ "        <input type=\"text\" id=\"nome\" name=\"nome\"><br><br>\r\n"
 				+ "\r\n"
-				+ "        <label for=\"senha\">Senha:</label>\r\n"
-				+ "        <input type=\"password\" id=\"senha\" name=\"senha\"><br><br>\r\n"
 				+ "\r\n"
-				+ "        <label for=\"perfil\">Perfil:</label>\r\n"
-				+ "        <select id=\"perfil\" name=\"perfil\">\r\n"
-				+ "            <option value=\"administrador\">Administrador</option>\r\n"
-				+ "            <option value=\"usuário\">Usuário</option>\r\n"
-				+ "        </select><br><br>\r\n"
-				+ "\r\n"
-				+ "        <input type=\"submit\" value=\"Enviar\">\r\n"
-				+ "    </form>\r\n"
-				+ "</body>\r\n"
 				+ "</html>");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	
+		Usuario usuario = new Usuario();
+		DaoUsuario daoUsuario = new DaoUsuario();
 		
-		 Usuario usuario = new Usuario();
-		 
-		 usuario.setUsuario(request.getParameter("nome"));
-		 usuario.setSenha(request.getParameter("senha"));
-		 usuario.setPerfil(request.getParameter("perfil"));
-		 
-		 DaoUsuario dao = new DaoUsuario();
-		 dao.salvarUsuarioBanco(usuario);
+		
+		usuario.setNome(request.getParameter("nome"));
+		usuario.setSenha(request.getParameter("senha"));
+		usuario.setPerfil(request.getParameter("perfil"));
+	
+		
+		daoUsuario.salvarUsuarioBanco(usuario);
 	}
+	
+
+	
 
 }

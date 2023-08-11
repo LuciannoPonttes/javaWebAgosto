@@ -51,6 +51,17 @@
   	<url-pattern>/menuAdm</url-pattern>
   </servlet-mapping>
   
+  
+  
+  <servlet>
+  	<servlet-name>CadatrarUsuario</servlet-name>
+  	<servlet-class>controller.CadatrarUsuario</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CadatrarUsuario</servlet-name>
+  	<url-pattern>/cadastroUsuario</url-pattern>
+  </servlet-mapping>
    
   
 

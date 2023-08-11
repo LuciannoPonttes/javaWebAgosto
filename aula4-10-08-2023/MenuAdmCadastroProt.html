@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegação</title>
+    <style>
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #007bff;
+            overflow: hidden;
+        }
+
+        ul.navbar li {
+            float: left;
+        }
+
+        ul.navbar li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.navbar li a:hover {
+            background-color: #e0e0e0;
+        }
+
+		 form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        form label,
+        form input,
+        form select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+	</style>
+	<body>
+	
+	<ul class="navbar">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="cadastroUsuario">Administrar</a></li>
+    </ul>
+	
+	<form>
+		<label>Nome:</label>
+		<input type="text" id="nome" name="nome">
+		
+		<label>Senha:</label>
+		<input type="password" id="senha" name="senha">
+		
+		<label>Perfil:</label>
+		<select id="perfil" name="perfil">
+			<option value="ADM">ADM</option>
+			<option value="COMUM">COMUM</option>
+		</select><br>
+		
+		<input type="submit" value="Enviar">
+		
+	</form>
+		
+		
+	</body>
+
+
+
+</html>
