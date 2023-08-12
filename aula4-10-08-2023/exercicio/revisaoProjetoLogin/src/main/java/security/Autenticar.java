@@ -4,6 +4,8 @@ import model.Usuario;
 
 public class Autenticar {
 
+	
+	// Verifica se o usuario é credenciado
 	public Usuario autenticarUsuario(Usuario usuario) {
 		if(usuario.getNome().equals("Gabriel") || usuario.getNome().equals("Pet") ) {
 			
