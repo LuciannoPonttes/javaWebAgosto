@@ -123,11 +123,63 @@ public class DaoUsuario {
 		return usuarios;
 	}
 	
+	//delete from tb_usuario where nome = 'JULIANA';
 	
-	
-	
-	
-	
-	
-	
+	public boolean deletarUsuario(String nome) {
+		String sql = "delete from tb_usuario where nome = ?";
+		
+		FabricaConexao fabricaConexao = new FabricaConexao();
+		
+		Connection conexaoRecebida = null ;
+		PreparedStatement declaracaoComando = null;
+		
+		
+		try {
+			
+			//Armazena a conexão
+			conexaoRecebida = fabricaConexao.criarConexoBancoUsuario();
+			
+			//Prepara o comando que sera enviado para o banco
+			declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(sql);
+			
+			declaracaoComando.setString(1, nome);
+			//Executa a query
+			declaracaoComando.execute();
+			
+			
+			System.out.println("Deletado com sucesso");
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println("Erro ao deletar o Usuario");
+			
+		}finally {
+			try {
+				if(conexaoRecebida != null) {
+					conexaoRecebida.close();
+				}
+				if(declaracaoComando != null) {
+					declaracaoComando.close();
+				}
+				
+			} catch (Exception e2) {
+				System.out.println("Erro ao fechar Conexao!!");
+			}
+		
+		}
+		return false;
+	}
 }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
