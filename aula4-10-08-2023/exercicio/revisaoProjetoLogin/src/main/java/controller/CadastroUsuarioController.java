@@ -24,7 +24,9 @@ public class CadastroUsuarioController extends HttpServlet {
 		
 		 	DaoUsuario daoUsuario = new DaoUsuario();
 			
-			
+		 	String nomeUsuario = " ";
+		 	String botaoFormulario = "Novo";
+		 	
 			HttpSession sessao = request.getSession();
 			
 			Usuario usuarioLogado = (Usuario) sessao.getAttribute("UsuarioSessao");
@@ -39,9 +41,17 @@ public class CadastroUsuarioController extends HttpServlet {
 				 String acao = request.getParameter("action");
 				
 				 if(acao != null && acao.equals("delete") ) {
-					 String nomeUsuario = request.getParameter("nome");
+					  nomeUsuario = request.getParameter("nome");
 					 daoUsuario.deletarUsuario(nomeUsuario);
 					 response.sendRedirect(request.getContextPath() + "/cadastroUsuario");
+					 
+				 }
+				 
+				 if(acao != null && acao.equals("edit") ) {
+					  nomeUsuario = request.getParameter("nome");
+					  botaoFormulario = "Alterar";
+					 
+					 
 					 
 				 }
 				 
@@ -57,7 +67,7 @@ public class CadastroUsuarioController extends HttpServlet {
 					linhasDaTabela.append(" <td>").append(usuario.getNome()).append("</td>\r\n");
 					linhasDaTabela.append(" <td>").append(usuario.getPerfil()).append("</td>\r\n");
 					linhasDaTabela.append("    <td>\r\n");
-					linhasDaTabela.append("			<button action=\"cadastroUsuario\" method=\"post\" class=\"btn-editar\">Editar</button>\r\n");
+					linhasDaTabela.append("        <a href=\"cadastroUsuario?action=edit&nome=" + usuario.getNome() + "\" class=\"btn-editar\">Editar</a>\r\n");
 					linhasDaTabela.append("    <td>\r\n");
 					linhasDaTabela.append("        <a href=\"cadastroUsuario?action=delete&nome=" + usuario.getNome() + "\" class=\"btn-deletar\">Deletar</a>\r\n");
 					linhasDaTabela.append("    </td>\r\n");
@@ -145,18 +155,19 @@ public class CadastroUsuarioController extends HttpServlet {
 				 		+ "    </nav><br>\r\n"
 				 		+ "    <form action=\"cadastroUsuario\" method=\"post\">\r\n"
 				 		+ "        <label>Nome:</label>\r\n"
-				 		+ "        <input type=\"text\" id=\"nome\" name=\"nome\">\r\n"
+				 		+ "<input value=\""+nomeUsuario+"\" type=\"text\" id=\"nome\" name=\"nome\" autocomplete=\"off\">"
 				 		+ "\r\n"
 				 		+ "        <label>Senha:</label>\r\n"
-				 		+ "        <input type=\"password\" id=\"senha\" name=\"senha\">\r\n"
+				 		 +" <input value=\"\" type=\"password\" id=\"senha\" name=\"senha\" autocomplete=\"off\">"
 				 		+ "\r\n"
 				 		+ "        <label>Perfil:</label>\r\n"
 				 		+ "        <select id=\"perfil\" name=\"perfil\">\r\n"
+				 		+ "            <option value=\"\"></option>\r\n"
 				 		+ "            <option value=\"ADM\">ADM</option>\r\n"
 				 		+ "            <option value=\"COMUM\">COMUM</option>\r\n"
 				 		+ "        </select>\r\n"
 				 		+ "\r\n"
-				 		+ "        <button class=\"btn-enviar\" type=\"submit\">Enviar</button>\r\n"
+				 		+ "        <button class=\"btn-enviar\" type=\"submit\">"+botaoFormulario+"</button>\r\n"
 				 		+ "    </form>\r\n"
 				 		+ "\r\n"
 				 		+ "    <table class=\"custom-table\">\r\n"
@@ -188,20 +199,19 @@ public class CadastroUsuarioController extends HttpServlet {
 		Usuario usuario = new Usuario();
 		DaoUsuario daoUsuario = new DaoUsuario();
 		
-		String action = request.getParameter("action");
-		if (action != null && action.equals("delete")) {
-		    String nomeUsuario = request.getParameter("nome");
-		  
-		    response.sendRedirect(request.getContextPath() + "/cadastroUsuario");
-		}
-		
-		
 		usuario.setNome(request.getParameter("nome"));
 		usuario.setSenha(request.getParameter("senha"));
 		usuario.setPerfil(request.getParameter("perfil"));
 	
+		if (daoUsuario.verificarUsuario(usuario)) {
+			daoUsuario.alterarUsuarioBanco(usuario);
+		}else {
+			daoUsuario.salvarUsuarioBanco(usuario);
+		}
 		
-		daoUsuario.salvarUsuarioBanco(usuario);
+		
+		
+		
 		response.sendRedirect(request.getContextPath()+ "/cadastroUsuario");
 	
 	
