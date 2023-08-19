@@ -1,33 +1,33 @@
 package security;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import model.Usuario;
+import persistence.DaoUsuario;
 
 public class Autenticar {
 
 	
 	// Verifica se o usuario é credenciado
 	public Usuario autenticarUsuario(Usuario usuario) {
-		if(usuario.getNome().equals("Gabriel") || usuario.getNome().equals("Pet") ) {
+		
+		DaoUsuario daoUsuario = new DaoUsuario();
+		
+		List<Usuario> usuariosBanco = daoUsuario.buscarListaUsuario();
 			
-			if(usuario.getNome().equals("Gabriel")) {
-				usuario.setPerfil("ADM");	
-			}
-			
-			if(usuario.getNome().equals("Pet")) {
-				usuario.setPerfil("COMUM");
+		
+		for (Usuario usuarioBanco : usuariosBanco) {
+			if (usuario.getNome().toUpperCase().equals(usuarioBanco.getNome()) 
+					&& usuario.getSenha().equals(usuarioBanco.getSenha())) {
 				
+				return usuarioBanco;
 			}
 			
-			if(usuario.getSenha().equals("123")) {
-				return usuario;
-			}
 		}
-			
+		
 		return null;
-		
-		
-		
-		
 		
 	}
 	

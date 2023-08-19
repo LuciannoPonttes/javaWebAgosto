@@ -70,7 +70,7 @@
 	
 	 	<!-- Apresento o nome de quem ta logado -->
 		
-		<p>Bem-vindo, <%= usuarioLogado.getNome() %>!</p>
+		<p>Bem-vindo, <% usuarioLogado.getNome(); %>!</p>
 	
 	
 	
