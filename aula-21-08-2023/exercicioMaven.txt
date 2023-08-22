@@ -1,2 +1,7 @@
 Faça um hello Word
 Usando Maven e servlet
+
+Busque a frase
+	Hello word
+	de uma tabela do banco de dados
+	e apresente em um JSP

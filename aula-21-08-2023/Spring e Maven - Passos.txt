@@ -1,0 +1,15 @@
+1 - Criar projeto web
+
+2 - Converter o projeto web em projeto MAVEN
+
+3 - Adicionar as dependencias no pom.xml
+
+4 - Criar web xml
+	Configurar a serlvet Dispacher do spring
+	Mapear a serlver serlvet Dispacher do spring
+	Adicionar o arquivo de configuração do spring container
+5 - Criar arquivo de configuração do spring container
+	mvc-dispatcher-servlet
+	Informar qual é o pacote dos controladores
+	Informar qual é o pacote das views e o tipo de arquivo da view
+ 6
