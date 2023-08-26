@@ -5,8 +5,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller
-@RequestMapping("/inicio")
+@Controller // Spring identifica que é uma classe controladora
+@RequestMapping("/inicio")// Url para acessar a rota dessa controller
 public class InicioController {
 
 	
