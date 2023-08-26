@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Despesa</title>
+</head>
+
+<header>
+	<nav>
+	
+		<ul>
+			<li><a href="/despesa">Cadastrar Despesa</a></li>
+		</ul>
+	
+	</nav>
+
+</header>
+	<body>
+		<h1>Lista de Despesas</h1>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Descricao</th>	
+					<th>Observacao</th>
+							
+				</tr>
+		</thead>
+		<tbody>
+			<tr th:each= "despesa: ${listaDespesas}" >
+				<td><span th:text="${despesa.descricao}"></span></td>
+				<td><span th:text="${despesa.observacoes}"></span></td>
+			
+			
+			</tr>
+		</tbody>
+			
+		
+		
+		
+		
+		</table>
+	
+	
+	
+	
+	</body>
+</html>
