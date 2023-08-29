@@ -1,0 +1,14 @@
+Crie uma aplicação utilizando JAVA, MAVEN, SPRINGBOOT, SPRING MVC, HIBERNATE e mySql.
+
+	A aplicação deve receber o cadastro da entidade:
+		
+		Aluno:
+			Matricula - Inseridade automaticamente pelo banco de dados
+			
+			Nome
+			Idade
+			Sexo
+			email
+ 
+	Faça a tela de cadastro e a tela de listagem e adicione bootStrap
+			

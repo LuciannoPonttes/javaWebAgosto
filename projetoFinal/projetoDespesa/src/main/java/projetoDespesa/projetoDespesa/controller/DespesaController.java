@@ -12,7 +12,7 @@ import projetoDespesa.projetoDespesa.model.Despesa;
 import projetoDespesa.projetoDespesa.repository.DespesaRepositorio;
 
 @Controller
-public class DespesaController {
+public class DespesaController{
 	
 	@Autowired // Inicializa automaticamente 
 	DespesaRepositorio despesaRepositorio;
