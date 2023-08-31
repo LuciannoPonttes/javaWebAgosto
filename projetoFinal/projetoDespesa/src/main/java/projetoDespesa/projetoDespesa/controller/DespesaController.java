@@ -30,7 +30,7 @@ public class DespesaController{
 		
 		despesaRepositorio.save(despesa);
 		
-		return "redirect:/despesa";
+		return "redirect:/despesasLista";
 	}
 	
 	
@@ -47,6 +47,37 @@ public class DespesaController{
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping("/deletarDespesa")
+	public String deletarDespesa(long codigo) {
+		
+		Despesa despesa = despesaRepositorio.findByCodigo(codigo);
+		despesaRepositorio.delete(despesa);
+		
+		
+		return "redirect:/despesasLista";
+	}
+	@RequestMapping("/alterarDespesa")
+	public ModelAndView alterarDespesa(long codigo) {
+		
+		ModelAndView modelAndView = new ModelAndView("alterarDespesa");
+		
+		Despesa despesa = despesaRepositorio.findByCodigo(codigo);
+		
+		modelAndView.addObject("despesa", despesa);
+		
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value="/alterarDespesa", method=RequestMethod.POST)
+	public String alterarDespesaPost(Despesa despesa) {
+		
+		despesaRepositorio.save(despesa);// Se não existir uma despesa esse metodo adicionar, se não ele edita
+		
+		return "redirect:/despesasLista";
+	}
+	
 	
 	
 }

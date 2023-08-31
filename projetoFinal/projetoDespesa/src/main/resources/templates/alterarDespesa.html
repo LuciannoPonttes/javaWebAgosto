@@ -26,20 +26,24 @@
 </nav>
 
 <div class="container mt-5">
-    <h1>Cadastro de Despesa</h1>
+    <h1>Alterar Despesa</h1>
 
     <form method="post">
-        <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="descricao" name="descricao">
+        <div th:each="despesa : ${despesa}">
+	        
+	        <div class="mb-3">
+	            <label for="descricao" class="form-label">Descrição</label>
+	            <input type="text" class="form-control" id="descricao" name="descricao" th:value="${despesa.descricao}"/>
+	        </div>
+	        
+	        <div class="mb-3">
+	            <label for="observacoes" class="form-label">Observações</label>
+	            <input type="text" class="form-control" id="observacoes" name="observacoes" th:value="${despesa.observacoes}"/>
+	        </div>
+        
         </div>
         
-        <div class="mb-3">
-            <label for="observacoes" class="form-label">Observações</label>
-            <input type="text" class="form-control" id="observacoes" name="observacoes">
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary">Alterar</button>
     </form>
 </div>
 </body>
